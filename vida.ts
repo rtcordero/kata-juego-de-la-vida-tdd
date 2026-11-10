@@ -19,7 +19,11 @@ export class Mundo {
     return this.celulas;
   }
 
-  vecinasVivas(celula: Celula): number {
-    return this.celulas.length - 1;
+  vecinasVivas([x, y]: Celula): number {
+    return this.celulas.filter(([otraX, otraY]) => {
+      const esLaMisma = otraX === x && otraY === y;
+      const estaPegada = Math.abs(otraX - x) <= 1 && Math.abs(otraY - y) <= 1;
+      return estaPegada && !esLaMisma;
+    }).length;
   }
 }
