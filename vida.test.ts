@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { siguienteEstado } from './vida.ts';
+import { Mundo, siguienteEstado } from './vida.ts';
 
 test('una célula viva sin vecinas muere de soledad', () => {
   assert.equal(siguienteEstado('viva', 0), 'muerta');
@@ -24,4 +24,9 @@ test('una célula muerta con exactamente tres vecinas nace', () => {
 
 test('una célula viva con cuatro vecinas muere por superpoblación', () => {
   assert.equal(siguienteEstado('viva', 4), 'muerta');
+});
+
+test('un mundo vacío no tiene células vivas', () => {
+  const mundo = new Mundo([]);
+  assert.deepEqual(mundo.celulasVivas(), []);
 });
