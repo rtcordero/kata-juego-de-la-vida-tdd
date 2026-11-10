@@ -9,9 +9,13 @@ export function siguienteEstado(estado: Estado, vecinasVivas: number): Estado {
 export type Celula = readonly [x: number, y: number];
 
 export class Mundo {
-  constructor(celulas: Celula[]) {}
+  private readonly celulas: Celula[];
+
+  constructor(celulas: Celula[]) {
+    this.celulas = celulas;
+  }
 
   celulasVivas(): Celula[] {
-    return [];
+    return this.celulas;
   }
 }
