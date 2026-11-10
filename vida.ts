@@ -26,4 +26,8 @@ export class Mundo {
       return estaPegada && !esLaMisma;
     }).length;
   }
+
+  siguienteGeneracion(): Mundo {
+    return new Mundo([]);
+  }
 }
