@@ -45,3 +45,8 @@ test('cuenta una vecina pegada', () => {
   const mundo = new Mundo([[0, 0], [1, 0]]);
   assert.equal(mundo.vecinasVivas([0, 0]), 1);
 });
+
+test('una célula a dos casillas no es vecina', () => {
+  const mundo = new Mundo([[0, 0], [2, 0]]);
+  assert.equal(mundo.vecinasVivas([0, 0]), 0);
+});
