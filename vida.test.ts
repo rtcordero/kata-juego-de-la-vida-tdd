@@ -64,3 +64,8 @@ test('en la siguiente generación, una célula sola muere', () => {
   const mundo = new Mundo([[0, 0]]);
   assert.deepEqual(mundo.siguienteGeneracion().celulasVivas(), []);
 });
+
+test('un bloque de dos por dos no cambia', () => {
+  const bloque = new Mundo([[0, 0], [1, 0], [0, 1], [1, 1]]);
+  assert.deepEqual(bloque.siguienteGeneracion().celulasVivas(), [[0, 0], [1, 0], [0, 1], [1, 1]]);
+});
