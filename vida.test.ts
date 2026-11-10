@@ -21,3 +21,7 @@ test('una célula viva con tres vecinas sobrevive', () => {
 test('una célula muerta con exactamente tres vecinas nace', () => {
   assert.equal(siguienteEstado('muerta', 3), 'viva');
 });
+
+test('una célula viva con cuatro vecinas muere por superpoblación', () => {
+  assert.equal(siguienteEstado('viva', 4), 'muerta');
+});
