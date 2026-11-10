@@ -9,3 +9,7 @@ test('una célula viva sin vecinas muere de soledad', () => {
 test('una célula viva con dos vecinas sobrevive', () => {
   assert.equal(siguienteEstado('viva', 2), 'viva');
 });
+
+test('una célula muerta con dos vecinas sigue muerta', () => {
+  assert.equal(siguienteEstado('muerta', 2), 'muerta');
+});
