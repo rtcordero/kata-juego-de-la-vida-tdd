@@ -50,3 +50,12 @@ test('una célula a dos casillas no es vecina', () => {
   const mundo = new Mundo([[0, 0], [2, 0]]);
   assert.equal(mundo.vecinasVivas([0, 0]), 0);
 });
+
+test('cuenta las ocho vecinas de alrededor, también en diagonal', () => {
+  const mundo = new Mundo([
+    [-1, -1], [0, -1], [1, -1],
+    [-1, 0], [0, 0], [1, 0],
+    [-1, 1], [0, 1], [1, 1],
+  ]);
+  assert.equal(mundo.vecinasVivas([0, 0]), 8);
+});
