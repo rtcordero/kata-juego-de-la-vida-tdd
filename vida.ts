@@ -16,7 +16,7 @@ export class Mundo {
   }
 
   celulasVivas(): Celula[] {
-    return this.celulas;
+    return [...this.celulas].sort(([ax, ay], [bx, by]) => ay - by || ax - bx);
   }
 
   vecinasVivas([x, y]: Celula): number {
