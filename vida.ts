@@ -18,4 +18,8 @@ export class Mundo {
   celulasVivas(): Celula[] {
     return this.celulas;
   }
+
+  vecinasVivas(celula: Celula): number {
+    return 0;
+  }
 }
