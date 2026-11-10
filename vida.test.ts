@@ -79,3 +79,13 @@ test('un parpadeador pasa de horizontal a vertical', () => {
   const horizontal = new Mundo([[0, 1], [1, 1], [2, 1]]);
   assert.deepEqual(horizontal.siguienteGeneracion().celulasVivas(), [[1, 0], [1, 1], [1, 2]]);
 });
+
+test('un planeador, cuatro generaciones después, se ha movido una casilla en diagonal', () => {
+  const planeador = [[1, 0], [2, 1], [0, 2], [1, 2], [2, 2]] as const;
+  let mundo = new Mundo([...planeador]);
+  for (let generacion = 0; generacion < 4; generacion++) {
+    mundo = mundo.siguienteGeneracion();
+  }
+  const desplazado = new Mundo(planeador.map(([x, y]) => [x + 1, y + 1] as const));
+  assert.deepEqual(mundo.celulasVivas(), desplazado.celulasVivas());
+});
