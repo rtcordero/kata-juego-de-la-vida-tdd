@@ -30,3 +30,8 @@ test('un mundo vacío no tiene células vivas', () => {
   const mundo = new Mundo([]);
   assert.deepEqual(mundo.celulasVivas(), []);
 });
+
+test('un mundo conoce las células vivas con las que empieza', () => {
+  const mundo = new Mundo([[0, 0]]);
+  assert.deepEqual(mundo.celulasVivas(), [[0, 0]]);
+});
