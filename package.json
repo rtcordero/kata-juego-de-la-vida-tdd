@@ -1,9 +1,21 @@
 {
   "name": "kata-juego-de-la-vida-tdd",
   "version": "1.0.0",
+  "description": "El Juego de la Vida de Conway resuelto con TDD en TypeScript: un commit por cada rojo, verde y refactor.",
   "private": true,
+  "license": "MIT",
+  "author": "Rubén Tejera Cordero",
   "type": "module",
-  "engines": { "node": ">=24.12" },
-  "scripts": { "test": "node --test", "check": "tsc" },
-  "devDependencies": { "@types/node": "24.19.2", "typescript": "7.0.2" }
+  "engines": {
+    "node": ">=24.12"
+  },
+  "scripts": {
+    "test": "node --test",
+    "check": "tsc",
+    "test:historial": "scripts/comprobar-historial.sh"
+  },
+  "devDependencies": {
+    "@types/node": "24.19.2",
+    "typescript": "7.0.2"
+  }
 }
