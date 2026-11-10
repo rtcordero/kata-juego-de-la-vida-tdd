@@ -40,3 +40,8 @@ test('una célula sola no tiene vecinas vivas', () => {
   const mundo = new Mundo([[0, 0]]);
   assert.equal(mundo.vecinasVivas([0, 0]), 0);
 });
+
+test('cuenta una vecina pegada', () => {
+  const mundo = new Mundo([[0, 0], [1, 0]]);
+  assert.equal(mundo.vecinasVivas([0, 0]), 1);
+});
