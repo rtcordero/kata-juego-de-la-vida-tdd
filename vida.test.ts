@@ -69,3 +69,8 @@ test('un bloque de dos por dos no cambia', () => {
   const bloque = new Mundo([[0, 0], [1, 0], [0, 1], [1, 1]]);
   assert.deepEqual(bloque.siguienteGeneracion().celulasVivas(), [[0, 0], [1, 0], [0, 1], [1, 1]]);
 });
+
+test('devuelve las células vivas por filas, de arriba abajo y de izquierda a derecha', () => {
+  const mundo = new Mundo([[1, 1], [0, 1], [5, 0]]);
+  assert.deepEqual(mundo.celulasVivas(), [[5, 0], [0, 1], [1, 1]]);
+});
