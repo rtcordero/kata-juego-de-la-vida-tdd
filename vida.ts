@@ -28,6 +28,9 @@ export class Mundo {
   }
 
   siguienteGeneracion(): Mundo {
-    return new Mundo([]);
+    const supervivientes = this.celulas.filter(
+      (celula) => siguienteEstado('viva', this.vecinasVivas(celula)) === 'viva',
+    );
+    return new Mundo(supervivientes);
   }
 }
