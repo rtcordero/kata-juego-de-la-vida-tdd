@@ -17,3 +17,7 @@ test('una célula muerta con dos vecinas sigue muerta', () => {
 test('una célula viva con tres vecinas sobrevive', () => {
   assert.equal(siguienteEstado('viva', 3), 'viva');
 });
+
+test('una célula muerta con exactamente tres vecinas nace', () => {
+  assert.equal(siguienteEstado('muerta', 3), 'viva');
+});
