@@ -35,3 +35,8 @@ test('un mundo conoce las células vivas con las que empieza', () => {
   const mundo = new Mundo([[0, 0]]);
   assert.deepEqual(mundo.celulasVivas(), [[0, 0]]);
 });
+
+test('una célula sola no tiene vecinas vivas', () => {
+  const mundo = new Mundo([[0, 0]]);
+  assert.equal(mundo.vecinasVivas([0, 0]), 0);
+});
