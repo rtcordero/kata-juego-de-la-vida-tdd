@@ -20,6 +20,6 @@ export class Mundo {
   }
 
   vecinasVivas(celula: Celula): number {
-    return 0;
+    return this.celulas.length - 1;
   }
 }
