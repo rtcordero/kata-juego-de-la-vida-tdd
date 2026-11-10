@@ -28,29 +28,27 @@ export class Mundo {
   }
 
   siguienteGeneracion(): Mundo {
-    const supervivientes = this.celulas.filter(
-      (celula) => siguienteEstado('viva', this.vecinasVivas(celula)) === 'viva',
+    const siguientes = this.celulasQueMirar().filter(
+      (celula) => siguienteEstado(this.estadoDe(celula), this.vecinasVivas(celula)) === 'viva',
     );
-    const nacidas = this.celulasMuertasDeAlrededor().filter(
-      (celula) => siguienteEstado('muerta', this.vecinasVivas(celula)) === 'viva',
-    );
-    return new Mundo([...supervivientes, ...nacidas]);
+    return new Mundo(siguientes);
   }
 
-  private celulasMuertasDeAlrededor(): Celula[] {
-    const muertas = new Map<string, Celula>();
+  // Las vivas y sus vecinas: más lejos no puede nacer nada.
+  private celulasQueMirar(): Celula[] {
+    const sinRepetir = new Map<string, Celula>();
     for (const [x, y] of this.celulas) {
       for (let dx = -1; dx <= 1; dx++) {
         for (let dy = -1; dy <= 1; dy++) {
-          const celula: Celula = [x + dx, y + dy];
-          if (!this.estaViva(celula)) muertas.set(`${x + dx},${y + dy}`, celula);
+          sinRepetir.set(`${x + dx},${y + dy}`, [x + dx, y + dy]);
         }
       }
     }
-    return [...muertas.values()];
+    return [...sinRepetir.values()];
   }
 
-  private estaViva([x, y]: Celula): boolean {
-    return this.celulas.some(([otraX, otraY]) => otraX === x && otraY === y);
+  private estadoDe([x, y]: Celula): Estado {
+    const viva = this.celulas.some(([otraX, otraY]) => otraX === x && otraY === y);
+    return viva ? 'viva' : 'muerta';
   }
 }
