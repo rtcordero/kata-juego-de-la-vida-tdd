@@ -74,3 +74,8 @@ test('devuelve las células vivas por filas, de arriba abajo y de izquierda a de
   const mundo = new Mundo([[1, 1], [0, 1], [5, 0]]);
   assert.deepEqual(mundo.celulasVivas(), [[5, 0], [0, 1], [1, 1]]);
 });
+
+test('un parpadeador pasa de horizontal a vertical', () => {
+  const horizontal = new Mundo([[0, 1], [1, 1], [2, 1]]);
+  assert.deepEqual(horizontal.siguienteGeneracion().celulasVivas(), [[1, 0], [1, 1], [1, 2]]);
+});
