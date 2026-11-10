@@ -59,3 +59,8 @@ test('cuenta las ocho vecinas de alrededor, también en diagonal', () => {
   ]);
   assert.equal(mundo.vecinasVivas([0, 0]), 8);
 });
+
+test('en la siguiente generación, una célula sola muere', () => {
+  const mundo = new Mundo([[0, 0]]);
+  assert.deepEqual(mundo.siguienteGeneracion().celulasVivas(), []);
+});
